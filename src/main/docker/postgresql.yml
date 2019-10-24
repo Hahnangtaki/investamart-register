@@ -1,0 +1,11 @@
+version: '2'
+services:
+  investaregistersvc-postgresql:
+    image: postgres:11.5
+    # volumes:
+    #     - ~/volumes/jhipster/investaregistersvc/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=investaregistersvc
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
