@@ -1,0 +1,114 @@
+{
+    "name": "AccountRegister",
+    "fields": [
+        {
+            "fieldName": "registerCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 10
+        },
+        {
+            "fieldName": "accountName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 10
+        },
+        {
+            "fieldName": "accountType",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1
+        },
+        {
+            "fieldName": "accountAngle",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "kseiClientCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 4
+        },
+        {
+            "fieldName": "kseiSubrek",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 15
+        },
+        {
+            "fieldName": "createSystemDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "createUserId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "lastModificationSystemDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "lastModificationDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "lastModificationUserId",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "accountIndividuRegister",
+            "otherEntityRelationshipName": "accountRegister",
+            "relationshipName": "accountIndividuRegister",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "accountInstitutionRegister",
+            "otherEntityRelationshipName": "accountRegister",
+            "relationshipName": "accountInstitutionRegister",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "accountAuthorizeRegister",
+            "otherEntityRelationshipName": "accountRegister",
+            "relationshipName": "accountAuthorizeRegister"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "investorAddressRegister",
+            "otherEntityRelationshipName": "accountRegister",
+            "relationshipName": "investorAddressRegister"
+        }
+    ],
+    "changelogDate": "20191028075157",
+    "entityTableName": "account_register",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "investaregistersvc",
+    "applications": "*",
+    "microserviceName": "investaregistersvc"
+}
