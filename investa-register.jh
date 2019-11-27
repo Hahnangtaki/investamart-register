@@ -1,0 +1,241 @@
+entity OtpHistory {
+	createdBy Integer,
+    otpCreatedDate ZonedDateTime,
+    otpExpiredDate ZonedDateTime,
+    memberEmail String,
+    phoneNumber String,
+    procType Integer,
+    tokenText String,
+    token String,
+    retryCount Integer,
+    retryMax Integer,
+    requestData Blob,
+    
+    createSystemDate LocalDate,
+    createDate ZonedDateTime,
+    createUserId Long,
+    lastModificationSystemDate LocalDate,
+    lastModificationDate ZonedDateTime,
+    lastModificationUserId Long
+}
+
+entity Visitor {
+	email String maxlength(100),
+    password String maxlength(100),
+    mobilePhone String,
+    memberSince LocalDate,
+    memberStatus Integer,
+    
+    createSystemDate LocalDate,
+    createDate ZonedDateTime,
+    createUserId Long,
+    lastModificationSystemDate LocalDate,
+    lastModificationDate ZonedDateTime,
+    lastModificationUserId Long
+}
+
+entity VisitorRegisterAccount {
+	accountType String maxlength(1),
+    
+    registerId Long,
+    accountId Long,
+    
+    createSystemDate LocalDate,
+    createDate ZonedDateTime,
+    createUserId Long,
+    lastModificationSystemDate LocalDate,
+    lastModificationDate ZonedDateTime,
+    lastModificationUserId Long
+}
+
+entity AccountRegister { //relationship DONE
+	registerCode String maxlength(10),
+    accountName String maxlength(10),
+    accountType String maxlength(1),
+    accountAngle Boolean,
+    kseiClientCode String maxlength(4),
+    kseiSubrek String maxlength(15),
+    
+    createSystemDate LocalDate,
+    createDate ZonedDateTime,
+    createUserId Long,
+    lastModificationSystemDate LocalDate,
+    lastModificationDate ZonedDateTime,
+    lastModificationUserId Long
+}
+
+entity AccountIndividuRegister { //relationship DONE
+	sid String maxlength(15),
+    firstName String maxlength(35),
+    middleName String maxlength(35),
+    lastName String maxlength(35),
+    nationalityId Long,
+    ktp String maxlength(25),
+    ktpExpDate LocalDate,
+    npwp String maxlength(15),
+    npwpRegDate LocalDate,
+    passport String maxlength(25),
+    passportExpDate LocalDate,
+    kitas String maxlength(30),
+    kitasExpDate LocalDate,
+    birthPlace String maxlength(100),
+    birthDate LocalDate,
+    sex String maxlength(1),
+    maritalStatus String maxlength(1),
+    spouseName String maxlength(100),
+    heir String maxlength(120),
+    heirRalation String maxlength(120),
+    educationBackground String maxlength(1),
+    occupation String maxlength(1),
+    natureOfBusiness String maxlength(120),
+    annualIncome Double,
+    fundSource String maxlength(30),
+    fundSourceText String maxlength(120),
+    description String maxlength(100),
+    investmentObjective String maxlength(10),
+    motherMaidenName String maxlength(100),
+    directSid String maxlength(15),
+    assetOwner String maxlength(1),
+    authPersonKtpRegDate LocalDate,
+    
+    taxId Long,
+    
+    //Tambahan field berdasarkan desain
+    imageKtp String,
+    imageNpwp String,
+    imageSelfieKtp String,
+    
+    
+    createSystemDate LocalDate,
+    createDate ZonedDateTime,
+    createUserId Long,
+    lastModificationSystemDate LocalDate,
+    lastModificationDate ZonedDateTime,
+    lastModificationUserId Long
+}
+
+entity AccountInstitutionRegister { //relationship DONE
+	sid String maxlength(15),
+    companyName String maxlength(100),
+    bicCode String maxlength(20),
+    legalDomicileId Long,
+    npwp String maxlength(100),
+    npwpRegDate LocalDate,
+    skd String maxlength(30),
+    skdExpDate LocalDate,
+    companyEstablishPlce String maxlength(10),
+    companyEstablishDate LocalDate,
+    businessType String maxlength(1),
+    companyChracteristic String maxlength(1),
+    fundSource String maxlength(30),
+    fundSourceText String maxlength(120),
+    articleAssociation String maxlength(120),
+    bussinessRegNo String maxlength(120),
+    financialAsset1 Double,
+    financialAsset2 Double,
+    financialAsset3 Double,
+    operatingProfit1 Double,
+    operatingProfit2 Double,
+    operatingProfit3 Double,
+    description String maxlength(100),
+    investmentObjective String maxlength(100),
+    directSid String maxlength(15),
+    assetOwner String maxlength(1),
+    supDocType String maxlength(1),
+    supDocExpDate LocalDate,
+    
+    taxId Long,
+    
+    createSystemDate LocalDate,
+    createDate ZonedDateTime,
+    createUserId Long,
+    lastModificationSystemDate LocalDate,
+    lastModificationDate ZonedDateTime,
+    lastModificationUserId Long
+}
+
+entity AccountAuthorizeRegister { //relationship DONE
+	firstName String maxlength(35),
+    middleName String maxlength(35),
+    lastName String maxlength(35),
+    position String maxlength(100),
+    ktp String maxlength(25),
+    ktpExpDate LocalDate,
+    npwp String maxlength(15),
+    npwpRegDate LocalDate,
+    passport String maxlength(25),
+    passportExpDate LocalDate,
+    kitas String maxlength(30),
+    kitasExpDate LocalDate,
+    
+    createSystemDate LocalDate,
+    createDate ZonedDateTime,
+    createUserId Long,
+    lastModificationSystemDate LocalDate,
+    lastModificationDate ZonedDateTime,
+    lastModificationUserId Long
+}
+
+entity InvestorAddressRegister { //relationship DONE
+	addressType String maxlength(1),
+    address1 String maxlength(60),
+    address2 String maxlength(60),
+    address3 String maxlength(60),
+    postalCode String maxlength(5),
+    phone String maxlength(30),
+    mobilePhone String maxlength(30),
+    email String maxlength(256),
+    fax String maxlength(30),
+    
+    countryId Long,
+    provinceId Long,
+    cityId Long,
+    
+    createSystemDate LocalDate,
+    createDate ZonedDateTime,
+    createUserId Long,
+    lastModificationSystemDate LocalDate,
+    lastModificationDate ZonedDateTime,
+    lastModificationUserId Long
+}
+
+entity ImageRegister {
+	image Blob,
+    imageCode String,
+    createSystemDate LocalDate,
+    createDate ZonedDateTime,
+    createUserId Long,
+    lastModificationSystemDate LocalDate,
+    lastModificationDate ZonedDateTime,
+    lastModificationUserId Long
+}
+
+relationship OneToOne {
+	AccountIndividuRegister to AccountRegister
+}
+
+relationship OneToOne {
+	AccountInstitutionRegister to AccountRegister
+}
+
+relationship OneToMany {
+	AccountRegister to AccountAuthorizeRegister
+}
+
+relationship OneToMany {
+	AccountRegister to InvestorAddressRegister
+}
+
+relationship OneToOne {
+	Visitor to VisitorRegisterAccount
+}
+
+relationship OneToMany {
+	Visitor to OtpHistory
+}
+
+paginate InvestorAddressRegister with pagination
+
+dto * with mapstruct
+
+service all with serviceImpl
